@@ -24,7 +24,7 @@ REQUIRED JSON OUTPUT SCHEMA:
 class MarketScraperAgent:
     """
     Agent 0: Autonomous Market Intelligence & Price Verification Agent.
-    Uses Gemini to arbitrate ambiguous DOM candidates and verify hardware specifications.
+    Uses Gemini to arbitrate ambiguous DOM candidates and verify hardware specifications
     """
 
     def __init__(self, api_key: str = None, model: str = "gemini-3.8-flash"):
