@@ -27,10 +27,11 @@ class MarketScraperAgent:
     Uses Gemini to arbitrate ambiguous DOM candidates and verify hardware specifications
     """
 
-    def __init__(self, api_key: str = None, model: str = "gemini-3.8-flash"):
+    def __init__(self, api_key: str = None, model: str = None):
         resolved_key = (api_key or os.getenv("GEMINI_API_KEY", "")).strip()
+        resolved_model = (model or os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")).strip()
         self.llm_client = (
-            GeminiClient(api_key=resolved_key, default_model=model)
+            GeminiClient(api_key=resolved_key, default_model=resolved_model)
             if resolved_key
             else None
         )

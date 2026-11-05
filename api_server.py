@@ -47,7 +47,7 @@ class QuantitativeSimRequest(BaseModel):
 
 class MultiAgentAuditRequest(BaseModel):
     api_key: Optional[str] = None
-    model: str = "gemini-flash-latest"
+    model: str = "gemini-3.5-flash-lite"
     service_level_z: float = 1.65
     elasticity: float = -1.8
     catalog_override: Optional[list[dict]] = None

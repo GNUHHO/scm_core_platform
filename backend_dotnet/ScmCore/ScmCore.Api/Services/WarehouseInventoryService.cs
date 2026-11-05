@@ -328,7 +328,8 @@ public class WarehouseInventoryService
     }
 
     /// <summary>
-    /// STEP 2 (Goods Receipt GRN): Converts IncomingQty -> OnHandQty, recalculates Weighted Moving Average Cost (MAC),
+    /// STEP 2 (Goods Receipt GRN): Validates remaining PO quantity, converts IncomingQty -> OnHandQty,
+    /// recalculates Weighted Moving Average Cost (MAC), updates today's DailyMarketHistory cost_price,
     /// creates a 36-month warranty FIFO Batch, and records an immutable StockMovement ledger entry.
     /// </summary>
     public async Task<object> ReceiveGoodsFromPoAsync(
@@ -338,16 +339,31 @@ public class WarehouseInventoryService
         string supplierInvoiceNo,
         string warehouseKeeper)
     {
+        if (acceptedQty <= 0)
+            throw new InvalidOperationException("Accepted quantity must be greater than zero.");
+
+        if (actualInvoiceUnitCost <= 0)
+            throw new InvalidOperationException("Actual invoice unit cost must be greater than zero.");
+
         await using var transaction = await _db.Database.BeginTransactionAsync();
 
         var po = await _db.PurchaseOrders
             .Include(p => p.Items)
             .FirstOrDefaultAsync(p => p.PoId == poId);
 
-        if (po == null || po.Status == "COMPLETED")
-            throw new InvalidOperationException("Purchase Order not found or already completed.");
+        if (po == null || po.Status == "COMPLETED" || po.Status == "CANCELLED")
+            throw new InvalidOperationException("Purchase Order not found or already completed/cancelled.");
 
-        var poItem = po.Items.First();
+        var poItem = po.Items.FirstOrDefault()
+            ?? throw new InvalidOperationException("Purchase Order has no line items.");
+
+        int remainingOrderQty = poItem.OrderedQty - poItem.ReceivedQty;
+        if (acceptedQty > remainingOrderQty)
+        {
+            throw new InvalidOperationException(
+                $"Cannot receive {acceptedQty} units. Only {remainingOrderQty} units remain open on PO {po.PoNumber}.");
+        }
+
         var product = await _db.Products.FirstAsync(p => p.Sku == poItem.Sku);
         var stock = await _db.InventoryStocks
             .FirstAsync(s => s.Sku == poItem.Sku && s.WarehouseId == po.WarehouseId);
@@ -355,7 +371,7 @@ public class WarehouseInventoryService
         int oldOnHand = stock.OnHandQty;
         long oldCost = product.CostPrice;
 
-        // Weighted Moving Average Cost (MAC) calculation
+        // 1. Weighted Moving Average Cost (MAC) calculation
         int newOnHand = oldOnHand + acceptedQty;
         long newMovingAvgCost = newOnHand > 0
             ? ((oldOnHand * oldCost) + (acceptedQty * actualInvoiceUnitCost)) / newOnHand
@@ -364,13 +380,26 @@ public class WarehouseInventoryService
         product.CostPrice = newMovingAvgCost;
         product.UpdatedAt = DateTime.UtcNow;
 
+        // 2. Shift stock from IncomingQty to physical OnHandQty
         stock.IncomingQty = Math.Max(0, stock.IncomingQty - acceptedQty);
         stock.OnHandQty = newOnHand;
         stock.UpdatedAt = DateTime.UtcNow;
 
+        // 3. Update PO item & header status
         poItem.ReceivedQty += acceptedQty;
         po.Status = poItem.ReceivedQty >= poItem.OrderedQty ? "COMPLETED" : "PARTIAL_RECEIVED";
 
+        // 4. Sync new Moving Average Cost into today's daily_market_history row so vw_live_ml_features stays accurate
+        var today = DateOnly.FromDateTime(DateTime.UtcNow.AddHours(7));
+        var todayHistory = await _db.DailyMarketHistories
+            .FirstOrDefaultAsync(h => h.Sku == product.Sku && h.RecordDate == today);
+        if (todayHistory != null)
+        {
+            todayHistory.CostPrice = newMovingAvgCost;
+            todayHistory.ListedPrice = product.ListedPrice;
+        }
+
+        // 5. Create Goods Receipt Note (GRN)
         string grnNumber = $"GRN-{DateTime.UtcNow:yyyyMMdd}-{Random.Shared.Next(1000, 9999)}";
         var grn = new GoodsReceipt
         {
@@ -383,6 +412,7 @@ public class WarehouseInventoryService
         };
         _db.GoodsReceipts.Add(grn);
 
+        // 6. Create 36-month warranty FIFO Batch
         var batch = new InventoryBatch
         {
             BatchNumber = $"LOT-{DateTime.UtcNow:yyyyMMdd}-{po.SupplierId}-{Random.Shared.Next(100, 999)}",
@@ -391,12 +421,13 @@ public class WarehouseInventoryService
             InitialQty = acceptedQty,
             RemainingQty = acceptedQty,
             UnitImportCost = actualInvoiceUnitCost,
-            ReceivedDate = DateOnly.FromDateTime(DateTime.UtcNow),
-            SupplierWarrantyExpiry = DateOnly.FromDateTime(DateTime.UtcNow.AddMonths(36))
+            ReceivedDate = today,
+            SupplierWarrantyExpiry = today.AddMonths(36)
         };
         _db.InventoryBatches.Add(batch);
         await _db.SaveChangesAsync();
 
+        // 7. Write immutable Stock Movement Ledger (UUIDv7)
         var movement = new StockMovement
         {
             WarehouseId = po.WarehouseId,

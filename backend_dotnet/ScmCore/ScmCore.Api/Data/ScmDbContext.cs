@@ -30,14 +30,25 @@ public class ScmDbContext : DbContext
             .ToView("vw_live_ml_features")
             .HasNoKey();
 
+        // Explicit Primary Keys for all 14 ERP & WMS Entities
+        modelBuilder.Entity<Warehouse>().HasKey(x => x.WarehouseId);
+        modelBuilder.Entity<Supplier>().HasKey(x => x.SupplierId);
+        modelBuilder.Entity<Product>().HasKey(x => x.Sku);
+        modelBuilder.Entity<InventoryStock>().HasKey(x => x.StockId);
+        modelBuilder.Entity<CompetitorPriceLog>().HasKey(x => x.LogId);
+        modelBuilder.Entity<DailyMarketHistory>().HasKey(x => x.HistoryId);
+        modelBuilder.Entity<AgentAuditRun>().HasKey(x => x.RunId);
+        modelBuilder.Entity<AiSkuRecommendation>().HasKey(x => x.RecommendationId);
+        modelBuilder.Entity<PurchaseOrder>().HasKey(x => x.PoId);
+        modelBuilder.Entity<PurchaseOrderItem>().HasKey(x => x.PoItemId);
+        modelBuilder.Entity<GoodsReceipt>().HasKey(x => x.GrnId);
+        modelBuilder.Entity<InventoryBatch>().HasKey(x => x.BatchId);
+        modelBuilder.Entity<StockMovement>().HasKey(x => x.MovementId);
+        modelBuilder.Entity<PriceChangeLedger>().HasKey(x => x.PriceLogId);
+
         // PurchaseOrder 1-N PurchaseOrderItems relationship
         modelBuilder.Entity<PurchaseOrder>()
             .HasMany(p => p.Items)
             .WithOne()
             .HasForeignKey(i => i.PoId);
-
-        // ĐĂNG KÝ KHÓA CHÍNH RÕ RÀNG CHO CompetitorPriceLog ĐỂ EF CORE THEO DÕI (TRACK) ĐƯỢC
-        modelBuilder.Entity<CompetitorPriceLog>()
-            .HasKey(c => c.LogId);
     }
-}

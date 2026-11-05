@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\scmcore.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\scmcore.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\services\\warehouseinventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\services\\warehouseinventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\data\\scmdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\data\\scmdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\scmcore.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\scmcore.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\controllers\\scmenterprisecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 256,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,13 +54,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ScmCore.Api.http",
               "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\ScmCore.Api.http",
               "RelativeDocumentMoniker": "ScmCore.Api\\ScmCore.Api.http",
               "ToolTip": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\ScmCore.Api.http",
               "RelativeToolTip": "ScmCore.Api\\ScmCore.Api.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
               "WhenOpened": "2026-11-04T11:27:24.918Z",
               "EditorCaption": ""
@@ -104,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "WarehouseInventoryService.cs",
               "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Services\\WarehouseInventoryService.cs",
               "RelativeDocumentMoniker": "ScmCore.Api\\Services\\WarehouseInventoryService.cs",
@@ -117,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ScmDbContext.cs",
               "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Data\\ScmDbContext.cs",
               "RelativeDocumentMoniker": "ScmCore.Api\\Data\\ScmDbContext.cs",

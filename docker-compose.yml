@@ -1,0 +1,29 @@
+services:
+  scm-postgres:
+    image: postgres:18-alpine
+    container_name: scm_core_postgres18
+    restart: unless-stopped
+    command: >
+      postgres
+      -c io_method=worker
+      -c shared_buffers=256MB
+      -c work_mem=16MB
+    environment:
+      POSTGRES_USER: scm_admin
+      POSTGRES_PASSWORD: scm_secret_2026
+      POSTGRES_DB: scm_enterprise_db
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+      TZ: Asia/Ho_Chi_Minh
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres18_scm_data:/var/lib/postgresql
+      - ./database/init_postgres.sql:/docker-entrypoint-initdb.d/01_init_postgres.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U scm_admin -d scm_enterprise_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres18_scm_data:

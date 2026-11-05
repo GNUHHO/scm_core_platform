@@ -1,5 +1,25 @@
+# Environment & Secrets
 .env
-docker-compose.yml
-.venv
-.idea
+*.env.local
+
+# Python & IDEs
+.venv/
+venv/
 __pycache__/
+*.py[cod]
+.pytest_cache/
+.idea/
+.vscode/
+
+# Legacy Local SQLite (Đã chuyển sang PostgreSQL 18)
+database/*.db
+database/*.db-journal
+
+# C# / .NET 10 & Visual Studio 2026 Build Artifacts
+**/bin/
+**/obj/
+**/.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
