@@ -1,0 +1,165 @@
+[
+  {
+    "ContainingType": "ScmCore.Api.Controllers.ScmEnterpriseController",
+    "Method": "GetWarehouseInventory",
+    "RelativePath": "api/erp/inventory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScmCore.Api.Controllers.ScmEnterpriseController",
+    "Method": "GetAuditLedgers",
+    "RelativePath": "api/erp/ledgers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sku",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScmCore.Api.Controllers.ScmEnterpriseController",
+    "Method": "GetPurchaseOrders",
+    "RelativePath": "api/erp/purchase-orders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScmCore.Api.Controllers.ScmEnterpriseController",
+    "Method": "ReceiveGoodsGrn",
+    "RelativePath": "api/erp/purchase-orders/{poId}/receive-grn",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "poId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      },
+      {
+        "Name": "req",
+        "Type": "ScmCore.Api.Controllers.ReceiveGrnRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScmCore.Api.Controllers.ScmEnterpriseController",
+    "Method": "GetRecommendations",
+    "RelativePath": "api/erp/recommendations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScmCore.Api.Controllers.ScmEnterpriseController",
+    "Method": "ApproveRecommendation",
+    "RelativePath": "api/erp/recommendations/{recommendationId}/approve",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recommendationId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      },
+      {
+        "Name": "req",
+        "Type": "ScmCore.Api.Controllers.ApproveRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScmCore.Api.Controllers.ScmEnterpriseController",
+    "Method": "RejectRecommendation",
+    "RelativePath": "api/erp/recommendations/{recommendationId}/reject",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recommendationId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      },
+      {
+        "Name": "req",
+        "Type": "ScmCore.Api.Controllers.RejectRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScmCore.Api.Controllers.ScmEnterpriseController",
+    "Method": "SimulateWhatIf",
+    "RelativePath": "api/erp/simulate-what-if",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "ScmCore.Api.Controllers.WhatIfRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScmCore.Api.Controllers.ScmEnterpriseController",
+    "Method": "SyncCompetitorPrices",
+    "RelativePath": "api/erp/sync-competitor-prices",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "ScmCore.Api.Controllers.ScrapeSyncRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScmCore.Api.Controllers.ScmEnterpriseController",
+    "Method": "TriggerHybridAiAudit",
+    "RelativePath": "api/erp/trigger-ai-audit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,199 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\scmcore.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\scmcore.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\services\\warehouseinventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\services\\warehouseinventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\data\\scmdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\data\\scmdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\controllers\\scmenterprisecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\controllers\\scmenterprisecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\models\\erpentities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\models\\erpentities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\scmcore.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\scmcore.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|d:\\scm_core_platform\\backend_dotnet\\scmcore\\scmcore.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9B9B0FCE-851A-D4D0-DFE8-90CE6C3306FE}|ScmCore.Api\\ScmCore.Api.csproj|solutionrelative:scmcore.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 256,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ScmCore.Api.http",
+              "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\ScmCore.Api.http",
+              "RelativeDocumentMoniker": "ScmCore.Api\\ScmCore.Api.http",
+              "ToolTip": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\ScmCore.Api.http",
+              "RelativeToolTip": "ScmCore.Api\\ScmCore.Api.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-11-04T11:27:24.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "ScmCore.Api\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "ScmCore.Api\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-04T11:24:39.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Program.cs",
+              "RelativeDocumentMoniker": "ScmCore.Api\\Program.cs",
+              "ToolTip": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Program.cs",
+              "RelativeToolTip": "ScmCore.Api\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwCcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T11:06:36.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ScmEnterpriseController.cs",
+              "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Controllers\\ScmEnterpriseController.cs",
+              "RelativeDocumentMoniker": "ScmCore.Api\\Controllers\\ScmEnterpriseController.cs",
+              "ToolTip": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Controllers\\ScmEnterpriseController.cs",
+              "RelativeToolTip": "ScmCore.Api\\Controllers\\ScmEnterpriseController.cs",
+              "ViewState": "AgIAALQAAAAAAAAAAAAcwNsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T11:06:06.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WarehouseInventoryService.cs",
+              "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Services\\WarehouseInventoryService.cs",
+              "RelativeDocumentMoniker": "ScmCore.Api\\Services\\WarehouseInventoryService.cs",
+              "ToolTip": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Services\\WarehouseInventoryService.cs",
+              "RelativeToolTip": "ScmCore.Api\\Services\\WarehouseInventoryService.cs",
+              "ViewState": "AgIAANYBAAAAAAAAAAAowOoBAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T11:05:30.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ScmDbContext.cs",
+              "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Data\\ScmDbContext.cs",
+              "RelativeDocumentMoniker": "ScmCore.Api\\Data\\ScmDbContext.cs",
+              "ToolTip": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Data\\ScmDbContext.cs",
+              "RelativeToolTip": "ScmCore.Api\\Data\\ScmDbContext.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAswBsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T11:04:49.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ErpEntities.cs",
+              "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Models\\ErpEntities.cs",
+              "RelativeDocumentMoniker": "ScmCore.Api\\Models\\ErpEntities.cs",
+              "ToolTip": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\Models\\ErpEntities.cs",
+              "RelativeToolTip": "ScmCore.Api\\Models\\ErpEntities.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAA0wNIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T11:04:11.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ScmCore.Api.csproj",
+              "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\ScmCore.Api.csproj",
+              "RelativeDocumentMoniker": "ScmCore.Api\\ScmCore.Api.csproj",
+              "ToolTip": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\ScmCore.Api.csproj",
+              "RelativeToolTip": "ScmCore.Api\\ScmCore.Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-11-04T11:01:04.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "ScmCore.Api\\appsettings.json",
+              "ToolTip": "D:\\scm_core_platform\\backend_dotnet\\ScmCore\\ScmCore.Api\\appsettings.json",
+              "RelativeToolTip": "ScmCore.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-04T11:00:15.437Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 262,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

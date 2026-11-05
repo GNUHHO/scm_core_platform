@@ -1,0 +1,13 @@
+{
+  "trained_at": "2026-10-23 12:22:48",
+  "cutoff_date": "2026-07-17",
+  "train_rows": 825,
+  "test_rows": 207,
+  "demand_metrics": {
+    "rmse": 1.6149,
+    "mae": 1.27
+  },
+  "price_trend_metrics": {
+    "accuracy": 0.6135
+  }
+}

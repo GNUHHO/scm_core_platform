@@ -1,0 +1,23 @@
+﻿@ScmCore_HostAddress = http://localhost:5150
+
+### TEST A: Cào giá đối thủ trực tiếp (PriceStalker + Agent 0) và lưu thẳng vào PostgreSQL 18
+POST {{ScmCore_HostAddress}}/api/erp/sync-competitor-prices
+Content-Type: application/json
+
+{
+  "providerMode": "LOCAL",
+  "forceAi": false
+}
+
+### TEST B: Chạy giả lập What-If siêu tốc (<50ms) cho CPU-AMD-7800X3D
+POST {{ScmCore_HostAddress}}/api/erp/simulate-what-if
+Content-Type: application/json
+
+{
+  "sku": "CPU-AMD-7800X3D",
+  "customOnHandStock": 5,
+  "customListedPrice": 11350000,
+  "customCompetitorPrice": 11490000,
+  "serviceLevelZ": 1.65,
+  "elasticity": -1.8
+}
