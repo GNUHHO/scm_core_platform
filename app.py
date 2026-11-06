@@ -39,16 +39,16 @@ init_cron_worker()
 
 # --- SIDEBAR: GLOBAL CONFIGURATION & BATCH PIPELINE ---
 with st.sidebar:
-    st.title("⚙️ System & Agent Config")
+    st.title(" System & Agent Config")
 
     # Read API Key silently from backend environment (.env)
     api_key = os.getenv("GEMINI_API_KEY", "").strip()
     default_env_model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip()
 
     if api_key and not api_key.startswith("AIzaSy_YOUR"):
-        st.success("🟢 AI Engine: Connected (.env Loaded)")
+        st.success(" AI Engine: Connected (.env Loaded)")
     else:
-        st.error("🔴 AI Engine: Missing GEMINI_API_KEY in .env")
+        st.error(" AI Engine: Missing GEMINI_API_KEY in .env")
 
     model_options = ["gemini-2.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-flash-latest"]
     default_idx = model_options.index(default_env_model) if default_env_model in model_options else 0
@@ -79,28 +79,28 @@ with st.sidebar:
     )
 
     st.markdown("---")
-    st.subheader("🚀 Global Batch Pipeline")
+    st.subheader(" Global Batch Pipeline")
 
-    if st.button("🕷️ 1. Run PriceStalker Scraper", use_container_width=True):
+    if st.button(" 1. Run PriceStalker Scraper", use_container_width=True):
         with st.spinner("Running PriceStalker consensus scraper across retailers..."):
             scrape_res = scrape_and_sync_competitor_prices(api_key=api_key)
             st.session_state["last_scrape_result"] = scrape_res
             st.success(f"{scrape_res['status']} ({scrape_res['updated_records']} SKUs updated)")
             st.rerun()
 
-    if st.button("⚡ 2. Run Full Catalog Multi-Agent Audit", type="primary", use_container_width=True):
+    if st.button(" 2. Run Full Catalog Multi-Agent Audit", type="primary", use_container_width=True):
         if not api_key or api_key.startswith("AIzaSy_YOUR"):
             st.error("Missing valid GEMINI_API_KEY in your .env file.")
         else:
             with st.status("Executing Full Supply Chain Pipeline...", expanded=True) as status:
-                status.write("🕷️ Step 1/4: Syncing live competitor prices via PriceStalkerEngine...")
+                status.write(" Step 1/4: Syncing live competitor prices via PriceStalkerEngine...")
                 scrape_res = scrape_and_sync_competitor_prices(api_key=api_key)
                 st.session_state["last_scrape_result"] = scrape_res
 
-                status.write("📊 Step 2/4: Building lag features & running LightGBM + Random Forest...")
+                status.write(" Step 2/4: Building lag features & running LightGBM + Random Forest...")
                 catalog, suppliers = build_live_catalog_and_suppliers()
 
-                status.write("🤖 Step 3/4: Orchestrating Agent 1, Agent 2 & Chief Supervisor...")
+                status.write("Step 3/4: Orchestrating Agent 1, Agent 2 & Chief Supervisor...")
                 orchestrator = MultiAgentSupplyChainOrchestrator(
                     api_key=api_key, model=model_choice
                 )
@@ -110,18 +110,18 @@ with st.sidebar:
                 full_res = orchestrator.run_full_pipeline(catalog, suppliers)
                 st.session_state["last_full_pipeline_result"] = full_res
 
-                status.write("💾 Step 4/4: Persisting decisions to SQLite...")
+                status.write(" Step 4/4: Persisting decisions to SQLite...")
                 save_orchestrator_results(
                     full_res, trigger_type="MANUAL_WORKBENCH", model_used=model_choice
                 )
-                status.update(label="✅ Full Multi-Agent Audit Completed!", state="complete", expanded=False)
+                status.update(label=" Full Multi-Agent Audit Completed!", state="complete", expanded=False)
             st.rerun()
 
     st.markdown("---")
-    st.caption("🕒 Background Cron: **Active (Every Sunday 02:00 AM)**")
+    st.caption(" Background Cron: **Active (Every Sunday 02:00 AM)**")
 
 # --- MAIN PAGE HEADER ---
-st.title("🤖 Multi-Agent Supply Chain Testing Workbench & Command Center")
+st.title("Multi-Agent Supply Chain Testing Workbench & Command Center")
 st.caption(
     "Layer 1: LightGBM & Random Forest  •  Layer 2: Stochastic ROP & Scipy Bounded Solver  •  "
     "Layer 3: Autonomous Procurement, Pricing & Supervisor Agents"
@@ -151,17 +151,17 @@ conn.close()
 
 # --- FOUR SPECIALIZED WORKBENCH TABS ---
 tab_sandbox, tab_dashboard, tab_scraper, tab_history = st.tabs([
-    "🧪 1. AI Agent Sandbox (What-If Simulator)",
-    "🎯 2. Executive Command Center (Full Catalog)",
-    "🕷️ 3. PriceStalker Live Scraper Lab",
-    "📈 4. Historical Demand & Audit Logs",
+    " 1. AI Agent Sandbox (What-If Simulator)",
+    " 2. Executive Command Center (Full Catalog)",
+    " 3. PriceStalker Live Scraper Lab",
+    " 4. Historical Demand & Audit Logs",
 ])
 
 # ==============================================================================
 # TAB 1: INTERACTIVE AI AGENT SANDBOX (WHAT-IF SIMULATOR)
 # ==============================================================================
 with tab_sandbox:
-    st.subheader("🧪 Single-SKU Multi-Agent What-If Simulator")
+    st.subheader(" Single-SKU Multi-Agent What-If Simulator")
     st.markdown(
         "Test how **Layer 1 (ML)**, **Layer 2 (Math Optimization)**, and **Layer 3 (Multi-Agent System)** "
         "respond to custom inventory, cost, and competitor pricing scenarios in real time."
@@ -281,12 +281,12 @@ with tab_sandbox:
     if "sandbox_result" in st.session_state:
         s_res = st.session_state["sandbox_result"]
         st.markdown("---")
-        st.markdown("#### 🧠 Multi-Agent Reasoning & Conflict Resolution Trace")
+        st.markdown("####  Multi-Agent Reasoning & Conflict Resolution Trace")
 
         a1_col, a2_col, a3_col = st.columns(3)
 
         with a1_col:
-            st.info("📦 **Agent 1: Procurement Specialist**")
+            st.info(" **Agent 1: Procurement Specialist**")
             a1_plans = s_res.get("agent1_procurement", {}).get("procurement_plans", [])
             if a1_plans:
                 p1 = a1_plans[0]
@@ -299,7 +299,7 @@ with tab_sandbox:
                 st.json(s_res.get("agent1_procurement", {}))
 
         with a2_col:
-            st.warning("🏷️ **Agent 2: Dynamic Pricing Specialist**")
+            st.warning("🏷 **Agent 2: Dynamic Pricing Specialist**")
             a2_plans = s_res.get("agent2_pricing", {}).get("pricing_plans", [])
             if a2_plans:
                 p2 = a2_plans[0]
@@ -311,7 +311,7 @@ with tab_sandbox:
                 st.json(s_res.get("agent2_pricing", {}))
 
         with a3_col:
-            st.success("👔 **Agent 3: Chief Supervisor (Final Verdict)**")
+            st.success(" **Agent 3: Chief Supervisor (Final Verdict)**")
             exec_payload = s_res.get("final_executive_payload", {})
             decisions = exec_payload.get("final_decisions", [])
             if decisions:
@@ -336,7 +336,7 @@ with tab_dashboard:
     if not df_logs.empty:
         latest_log = df_logs.iloc[0]
         st.info(
-            f"**👔 Latest Chief Supervisor Executive Summary ({latest_log['executed_at']} | Model: `{latest_log['model_used']}`):**\n\n"
+            f"** Latest Chief Supervisor Executive Summary ({latest_log['executed_at']} | Model: `{latest_log['model_used']}`):**\n\n"
             f"{latest_log['executive_summary']}"
         )
 
@@ -352,11 +352,11 @@ with tab_dashboard:
         hide_index=True,
     )
 
-    st.markdown("### ✅ Human-in-the-Loop Approval Cards")
+    st.markdown("###  Human-in-the-Loop Approval Cards")
     for _, row in df_master.iterrows():
         sku = row["sku"]
         status_badge = row["approval_status"] if pd.notna(row["approval_status"]) else "AWAITING_AUDIT"
-        with st.expander(f"📦 {sku} — {row['name']}  |  Approval Status: [{status_badge}]", expanded=(status_badge == "PENDING")):
+        with st.expander(f" {sku} — {row['name']}  |  Approval Status: [{status_badge}]", expanded=(status_badge == "PENDING")):
             c1, c2, c3 = st.columns([2, 2, 1])
             with c1:
                 st.markdown(f"**Current Stock:** `{row['current_stock']} units`")
@@ -372,11 +372,11 @@ with tab_dashboard:
                 st.markdown(f"**AI Suggested Price:** `{sug_p:,} VND` (`{row['price_action']}`)")
             with c3:
                 if pd.notna(row["final_suggested_price"]):
-                    if st.button("✅ Approve", key=f"approve_{sku}", use_container_width=True):
+                    if st.button(" Approve", key=f"approve_{sku}", use_container_width=True):
                         update_decision_approval(sku, "APPROVED")
                         st.success(f"Approved {sku}!")
                         st.rerun()
-                    if st.button("❌ Reject", key=f"reject_{sku}", use_container_width=True):
+                    if st.button(" Reject", key=f"reject_{sku}", use_container_width=True):
                         update_decision_approval(sku, "REJECTED")
                         st.warning(f"Rejected {sku}.")
                         st.rerun()
@@ -388,13 +388,13 @@ with tab_dashboard:
 # TAB 3: PRICESTALKER LIVE SCRAPER LAB
 # ==============================================================================
 with tab_scraper:
-    st.subheader("🕷️ PriceStalker v2.0 Consensus Scraper Diagnostics")
+    st.subheader(" PriceStalker v2.0 Consensus Scraper Diagnostics")
     st.markdown(
         "Inspect live competitor prices extracted via **Word-Boundary Hardware Gating**, "
         "**DOM Denoising**, and **Multi-Strategy Consensus Voting**."
     )
 
-    if st.button("🔄 Trigger Live PriceStalker Extraction Now"):
+    if st.button(" Trigger Live PriceStalker Extraction Now"):
         with st.spinner("Stalking competitor prices across An Phat PC & MemoryZone..."):
             scrape_res = scrape_and_sync_competitor_prices(api_key=api_key)
             st.session_state["last_scrape_result"] = scrape_res
@@ -411,7 +411,7 @@ with tab_scraper:
 # TAB 4: HISTORICAL DEMAND & AUDIT LOGS
 # ==============================================================================
 with tab_history:
-    st.subheader("📈 Historical Sales & Competitor Price Dynamics (Last 90 Days)")
+    st.subheader(" Historical Sales & Competitor Price Dynamics (Last 90 Days)")
     raw_csv_path = os.path.join(DATA_RAW_DIR, "historical_sales.csv")
     if os.path.exists(raw_csv_path):
         df_hist = pd.read_csv(raw_csv_path)
@@ -420,5 +420,5 @@ with tab_history:
         st.line_chart(sku_df.set_index("date")[["sales_qty"]])
         st.line_chart(sku_df.set_index("date")[["listed_price", "competitor_price"]])
 
-    st.subheader("📜 Multi-Agent Execution Audit Trail")
+    st.subheader(" Multi-Agent Execution Audit Trail")
     st.dataframe(df_logs, use_container_width=True, hide_index=True)
